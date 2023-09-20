@@ -1,0 +1,11 @@
+{
+  "name": "tauri-app-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "pnpm --filter @app/tauri-app dev",
+    "build": "pnpm --filter @app/tauri-app build",
+    "preview": "pnpm --filter @app/tauri-app preview",
+    "tauri": "pnpm --filter @app/tauri-app tauri"
+  }
+}
