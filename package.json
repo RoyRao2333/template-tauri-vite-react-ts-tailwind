@@ -1,5 +1,5 @@
 {
-  "name": "template-vite-react-ts-tailwind",
+  "name": "template-tauri-vite-react-ts-tailwind",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "1.5.0",
+    "@tauri-apps/cli": "1.4.0",
     "@types/node": "18.16.1",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
