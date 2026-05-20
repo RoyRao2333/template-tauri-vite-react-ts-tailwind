@@ -6,6 +6,12 @@
     "dev": "pnpm --filter @app/tauri-app dev",
     "build": "pnpm --filter @app/tauri-app build",
     "preview": "pnpm --filter @app/tauri-app preview",
-    "tauri": "pnpm --filter @app/tauri-app tauri"
+    "tauri": "pnpm --filter @app/tauri-app tauri",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
+  },
+  "devDependencies": {
+    "oxfmt": "0.51.0",
+    "oxlint": "1.66.0"
   }
 }
