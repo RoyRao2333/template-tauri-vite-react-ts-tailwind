@@ -22,12 +22,6 @@ A starter [Tauri](https://v2.tauri.app/) template, but with pnpm monorepo and so
 - Tailwind CSS
 - Oxc
 
-> **Note**
-> 
-> This code repository may occasionally update its dependency versions. If the dependency versions in the latest code do not meet your expectations, please go to [Tags](https://github.com/RoyRao2333/template-tauri-vite-react-ts-tailwind/tags) section to download a previous version of this template. I will display the dependencies used in each Tag, please choose the one you need.
-> 
-> 这个仓库会不定期更新依赖版本。如果最新代码里的依赖版本不符合你的预期，可以到 [Tags](https://github.com/RoyRao2333/template-tauri-vite-react-ts-tailwind/tags) 下载之前的模板版本。每个 Tag 都会标明当时使用的依赖版本，按你的项目需要选择即可。
-
 ## Install
 
 > This project uses [pnpm](https://pnpm.io/) as its package manager. Go check it out if you don't have it locally installed. If you use other package managers like *Yarn* or *npm*, you may need to change some scripts in `tauri.conf.json` and `package.json`.
@@ -72,13 +66,13 @@ Before you start development, rename the template placeholders to your own proje
 $ pnpm rename-project --name "My App" --id com.example.my-app
 ```
 
-| Argument 参数 | Required 是否必填 | Default 默认值 | Example 示例 | Description 说明 |
-| --- | --- | --- | --- | --- |
-| `--name` | Yes 是 | None 无 | `"My App"` | The project name you would enter as `Project name` in `create-tauri-app`.<br>也就是你在 `create-tauri-app` 里会填写的 `Project name`。它会用于 Tauri 的 `productName` 和窗口标题；归一化后的 package name 还会用于 `apps/<packageName>`、`@app/<packageName>`、Rust package name，以及 Rust 的 `xxx_lib` 名称。 |
-| `--id` | Yes 是 | None 无 | `com.example.my-app` | The bundle identifier you would enter as `Identifier` in `create-tauri-app`.<br>也就是你在 `create-tauri-app` 里会填写的 `Identifier`，会写入 `src-tauri/tauri.conf.json`。 |
+| Argument 参数 | Required 是否必填 | Default 默认值 | Example 示例         | Description 说明                                                                                                                                                                                                                                                                                                |
+| ------------- | ----------------- | -------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--name`      | Yes 是            | None 无        | `"My App"`           | The project name you would enter as `Project name` in `create-tauri-app`.<br>也就是你在 `create-tauri-app` 里会填写的 `Project name`。它会用于 Tauri 的 `productName` 和窗口标题；归一化后的 package name 还会用于 `apps/<packageName>`、`@app/<packageName>`、Rust package name，以及 Rust 的 `xxx_lib` 名称。 |
+| `--id`        | Yes 是            | None 无        | `com.example.my-app` | The bundle identifier you would enter as `Identifier` in `create-tauri-app`.<br>也就是你在 `create-tauri-app` 里会填写的 `Identifier`，会写入 `src-tauri/tauri.conf.json`。                                                                                                                                     |
 
-| Usage 用途 | Command 命令 |
-| --- | --- |
+| Usage 用途                                                 | Command 命令                                                  |
+| ---------------------------------------------------------- | ------------------------------------------------------------- |
 | Rename the template to `My App`<br>把模板重命名为 `My App` | `pnpm rename-project --name "My App" --id com.example.my-app` |
 
 The package name follows the same normalization rules as `create-tauri-app`: it is lowercased, `:`, `;`, spaces, and `~` become `-`, `.`, `/`, and `\` are removed, leading digits and `-` are removed, and an empty result falls back to `tauri-app`.
@@ -112,7 +106,3 @@ $ pnpm tauri dev
 Feel free to dive in! [Open an issue](https://github.com/RoyRao2333/template-tauri-vite-react-ts-tailwind/issues/new) or submit PRs.
 
 欢迎一起改进这个模板！你可以[提交 issue](https://github.com/RoyRao2333/template-tauri-vite-react-ts-tailwind/issues/new)，也可以直接发 PR。
-
-## License
-
-[MIT](LICENSE) © Roy Rao
