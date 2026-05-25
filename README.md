@@ -68,16 +68,22 @@ $ pnpm rename-project --name "My App" --id com.example.my-app
 
 | Argument 参数 | Required 是否必填 | Default 默认值 | Example 示例         | Description 说明                                                                                                                                                                                                                                                                                                |
 | ------------- | ----------------- | -------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--name`      | Yes 是            | None 无        | `"My App"`           | The project name you would enter as `Project name` in `create-tauri-app`.<br>也就是你在 `create-tauri-app` 里会填写的 `Project name`。它会用于 Tauri 的 `productName` 和窗口标题；归一化后的 package name 还会用于 `apps/<packageName>`、`@app/<packageName>`、Rust package name，以及 Rust 的 `xxx_lib` 名称。 |
+| `--name`      | Yes 是            | None 无        | `"My App"`           | The project name you would enter as `Project name` in `create-tauri-app`.<br>也就是你在 `create-tauri-app` 里会填写的 `Project name`。它会用于 Tauri 的 `productName` 和窗口标题；Node.js、pnpm、TypeScript 相关命名会转成 kebab-case；Rust 相关命名会继续使用 `create-tauri-app` 的 package name 规则。 |
 | `--id`        | Yes 是            | None 无        | `com.example.my-app` | The bundle identifier you would enter as `Identifier` in `create-tauri-app`.<br>也就是你在 `create-tauri-app` 里会填写的 `Identifier`，会写入 `src-tauri/tauri.conf.json`。                                                                                                                                     |
 
 | Usage 用途                                                 | Command 命令                                                  |
 | ---------------------------------------------------------- | ------------------------------------------------------------- |
 | Rename the template to `My App`<br>把模板重命名为 `My App` | `pnpm rename-project --name "My App" --id com.example.my-app` |
 
-The package name follows the same normalization rules as `create-tauri-app`: it is lowercased, `:`, `;`, spaces, and `~` become `-`, `.`, `/`, and `\` are removed, leading digits and `-` are removed, and an empty result falls back to `tauri-app`.
+For Node.js, pnpm, and TypeScript related names, this template uses kebab-case. For Rust and Tauri package names, it follows the same normalization rules as `create-tauri-app`: it is lowercased, `:`, `;`, spaces, and `~` become `-`, `.`, `/`, and `\` are removed, leading digits and `-` are removed, and an empty result falls back to `tauri-app`.
 
-package name 会使用和 `create-tauri-app` 一致的归一化规则：先转成小写；把 `:`、`;`、空格和 `~` 转成 `-`；移除 `.`、`/` 和 `\`；再移除开头的数字和 `-`。如果最后结果为空，就使用 `tauri-app` 作为默认值。
+Node.js、pnpm、TypeScript 相关命名会使用 kebab-case，主要包括 `apps/<workspacePackageName>`、`@app/<workspacePackageName>` 和根目录 `package.json` 里的 `pnpm --filter`。Rust 和 Tauri package name 继续使用 `create-tauri-app` 的归一化规则：先转成小写；把 `:`、`;`、空格和 `~` 转成 `-`；移除 `.`、`/` 和 `\`；再移除开头的数字和 `-`。如果最后结果为空，就使用 `tauri-app` 作为默认值。
+
+| Input `--name` 输入值 | Workspace package name | Rust package name  | Rust lib name         |
+| --------------------- | ---------------------- | ------------------ | --------------------- |
+| `MyProjectHello`      | `my-project-hello`     | `myprojecthello`   | `myprojecthello_lib`  |
+| `myProjectHello`      | `my-project-hello`     | `myprojecthello`   | `myprojecthello_lib`  |
+| `my_project_hello`    | `my-project-hello`     | `my_project_hello` | `my_project_hello_lib` |
 
 ## Usage
 
